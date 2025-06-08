@@ -1,146 +1,115 @@
+/* "Press Start 2P" 폰트를 구글 폰트에서 가져옵니다. */
 @import url("https://fonts.googleapis.com/css?family=Press+Start+2P");
+
 body {
+  /* body 요소의 바깥 여백을 없앱니다. */
   margin: 0;
+  /* flexbox 레이아웃을 사용하여 자식 요소들을 정렬합니다. */
   display: flex;
+  /* 전체 페이지의 기본 글꼴을 설정합니다. */
   font-family: "Press Start 2P", cursive;
 }
 
 #controls {
+  /* 화면에 절대 위치를 기준으로 배치합니다. */
   position: absolute;
+  /* 화면 아래쪽에서 20px 떨어진 곳에 위치합니다. */
   bottom: 20px;
+  /* 최소 너비를 화면 전체로 설정합니다. */
   min-width: 100%;
+  /* 자식 요소들을 flexbox로 정렬합니다. */
   display: flex;
+  /* 자식 요소들을 아래쪽 끝에 맞춰 정렬합니다. */
   align-items: flex-end;
+  /* 자식 요소들을 가운데로 정렬합니다. */
   justify-content: center;
 }
 
 #controls div {
+  /* 자식 요소들을 그리드 레이아웃으로 배치합니다. */
   display: grid;
+  /* 3개의 열을 각각 50px 너비로 만듭니다. */
   grid-template-columns: 50px 50px 50px;
+  /* 그리드 아이템 사이의 간격을 10px로 설정합니다. */
   gap: 10px;
 }
 
 #controls button {
+  /* 버튼의 너비를 100%로 설정합니다. */
   width: 100%;
+  /* 버튼의 높이를 40px로 설정합니다. */
   height: 40px;
+  /* 배경색을 흰색으로 지정합니다. */
   background-color: white;
+  /* 테두리를 설정합니다. */
   border: 1px solid lightgray;
+  /* 그림자 효과를 줍니다. */
   box-shadow: 3px 5px 0px 0px rgba(0, 0, 0, 0.75);
+  /* 마우스 커서를 포인터 모양으로 변경합니다. */
   cursor: pointer;
+  /* 클릭 시 나타나는 외곽선을 제거합니다. */
   outline: none;
 }
 
+/* 조작 버튼 중 첫 번째 버튼에만 적용됩니다. (전진 버튼) */
 #controls button:first-of-type {
+  /* 그리드 레이아웃의 첫 번째 열부터 마지막 열까지 차지하도록 합니다. */
   grid-column: 1/-1;
 }
 
 #score {
+  /* 화면에 절대 위치를 기준으로 배치합니다. */
   position: absolute;
+  /* 화면 위쪽에서 20px 떨어진 곳에 위치합니다. */
   top: 20px;
+  /* 화면 왼쪽에서 20px 떨어진 곳에 위치합니다. */
   left: 20px;
-
+  /* 글자 크기를 설정합니다. */
   font-size: 2em;
+  /* 글자 색상을 흰색으로 지정합니다. */
   color: white;
 }
 
 #result-container {
+  /* 화면에 절대 위치를 기준으로 배치합니다. */
   position: absolute;
+  /* 최소 너비와 높이를 화면 전체로 설정합니다. */
   min-width: 100%;
   min-height: 100%;
+  /* 화면 맨 위에 위치합니다. */
   top: 0;
+  /* flexbox를 사용하여 자식 요소들을 정렬합니다. */
   display: flex;
+  /* 자식 요소들을 세로 방향으로 가운데 정렬합니다. */
   align-items: center;
+  /* 자식 요소들을 가로 방향으로 가운데 정렬합니다. */
   justify-content: center;
+  /* 기본적으로 보이지 않도록 설정합니다. */
   visibility: hidden;
-
-  #result {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: white;
-    padding: 20px;
-  }
-
-  button {
-    background-color: red;
-    padding: 20px 50px 20px 50px;
-    font-family: inherit;
-    font-size: inherit;
-    cursor: pointer;
-  }
 }
 
-
-#youtube,
-#youtube-card {
-  display: none;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  color: black;
+#result {
+  /* flexbox를 사용하여 자식 요소들을 정렬합니다. */
+  display: flex;
+  /* 자식 요소들을 세로 방향으로 정렬합니다. */
+  flex-direction: column;
+  /* 자식 요소들을 세로 방향으로 가운데 정렬합니다. */
+  align-items: center;
+  /* 배경색을 흰색으로 지정합니다. */
+  background-color: white;
+  /* 안쪽 여백을 20px로 설정합니다. */
+  padding: 20px;
 }
 
-@media (min-height: 425px) {
-  /** Youtube logo by https://codepen.io/alvaromontoro */
-  #youtube {
-    z-index: 50;
-    width: 100px;
-    display: block;
-    height: 70px;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: red;
-    border-radius: 50% / 11%;
-    transform: scale(0.8);
-    transition: transform 0.5s;
-  }
-
-  #youtube:hover,
-  #youtube:focus {
-    transform: scale(0.9);
-    color: black;
-  }
-
-  #youtube::before {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 7.5%;
-    left: -6%;
-    width: 112%;
-    height: 85%;
-    background: red;
-    border-radius: 9% / 50%;
-  }
-
-  #youtube::after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 20px;
-    left: 40px;
-    width: 45px;
-    height: 30px;
-    border: 15px solid transparent;
-    box-sizing: border-box;
-    border-left: 30px solid white;
-  }
-
-  #youtube span {
-    font-size: 0;
-    position: absolute;
-    width: 0;
-    height: 0;
-    overflow: hidden;
-  }
-
-  #youtube:hover + #youtube-card {
-    z-index: 49;
-    display: block;
-    position: fixed;
-    bottom: 12px;
-    right: 10px;
-    padding: 25px 130px 25px 25px;
-    width: 300px;
-    background-color: white;
-  }
+#result-container button {
+  /* 배경색을 빨간색으로 지정합니다. */
+  background-color: red;
+  /* 안쪽 여백을 설정합니다. (상하 20px, 좌우 50px) */
+  padding: 20px 50px 20px 50px;
+  /* 부모 요소의 폰트를 상속받습니다. */
+  font-family: inherit;
+  /* 부모 요소의 폰트 크기를 상속받습니다. */
+  font-size: inherit;
+  /* 마우스 커서를 포인터 모양으로 변경합니다. */
+  cursor: pointer;
 }
