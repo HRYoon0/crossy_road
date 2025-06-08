@@ -3,12 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <title>Crossy Road with three.js</title>
+  <!-- 스타일 시트 파일을 연결합니다. -->
   <link rel="stylesheet" href="./style.css">
-
 </head>
 <body>
-<!-- partial:index.partial.html -->
+<!-- 게임이 렌더링될 캔버스 요소입니다. -->
 <canvas class="game"></canvas>
+
+<!-- 게임 조작 버튼들을 담는 컨테이너입니다. -->
 <div id="controls">
   <div>
     <button id="forward">▲</button>
@@ -17,7 +19,11 @@
     <button id="right">▶</button>
   </div>
 </div>
+
+<!-- 현재 점수를 표시하는 요소입니다. -->
 <div id="score">0</div>
+
+<!-- 게임 오버 시 결과를 보여주는 컨테이너입니다. -->
 <div id="result-container">
   <div id="result">
     <h1>Game Over</h1>
@@ -26,14 +32,8 @@
   </div>
 </div>
 
-<a id="youtube" target="_top" href="https://youtu.be/vNr3_hQ3Bws">
-  <span>Learn Three.js while building this game on YouTube</span>
-</a>
-<div id="youtube-card">
-  Learn Three.js while building this game on YouTube
-</div>
-<!-- partial -->
-  <script type="module" src="./script.js"></script>
+<!-- 자바스크립트 파일을 모듈 형태로 불러옵니다. -->
+<script type="module" src="./script.js"></script>
 
 </body>
 </html>
